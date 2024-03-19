@@ -58,13 +58,13 @@ def detect_surface(img_main):
     # CONTOUR DETECTION
     img = cv2.cvtColor(img_main, cv2.COLOR_BGR2GRAY)
     # apply binary thresholding
-    ret, thresh = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
+    ret, thresh = cv2.threshold(img, 160, 255, cv2.THRESH_BINARY)
     cv2.imshow('binary', thresh)
 
     contours, hierarchy = cv2.findContours(image=thresh, mode=cv2.RETR_TREE, method=cv2.CHAIN_APPROX_NONE)
     # print(type(contours)) # tuple
     print("Total contours: ",len(contours)) 
-    print(contours[100])
+    # print(contours[100])
     # draw contours on the original image
     image_copy = img_main.copy()
 
@@ -113,13 +113,10 @@ def gpt_detect_horizontal_surfaces(image):
     return image
 
 
-
-
-
 if __name__ == "__main__":
     # real_time()
-    # extract_feats("./table_2.jpg")
-    img = load_img("./table_1.jpg")
+    # extract_feats("./table_3.jpg")
+    img = load_img("./table_4.jpg")
 
     # gpt usage
     # out = gpt_detect_horizontal_surfaces(img)
